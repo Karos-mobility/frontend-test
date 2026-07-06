@@ -1,13 +1,9 @@
 :root {
   --primary: #009580;
   --primary-dark: #006654;
-  --primary-light: #6bd6ca;
-  --primary-extra-light: #e1f5f3;
-  --secondary-extra-light: #e5f4ff;
   --default-text-color: #222222;
   --divider-color: #d8d8d8;
   --default-background-color: #f6f7fa;
-  --error-text-color: #b3261e;
   --contrast-2: #717171;
   --white: #ffffff;
 

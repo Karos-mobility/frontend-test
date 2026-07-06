@@ -2,41 +2,38 @@
   <section class="roster">
     <header class="roster__header">
       <h1>Star Wars Roster</h1>
-      <p class="roster__subtitle">
-        Characters from swapi.dev, with their species resolved to a type.
-      </p>
+      <p class="roster__subtitle">Characters from swapi.dev.</p>
     </header>
 
     <div class="roster__toolbar">
-      <CharacterTypeFilter v-model="selectedType" :types="types" />
+      <CharacterGenderFilter v-model="selectedGender" :genders="genders" />
       <p class="roster__count">
-        Showing {{ filteredCharacters.length }} of
-        {{ characters.length }} characters
+        Showing {{ characters.length }} of {{ characters.length }} characters
       </p>
     </div>
 
-    <CharacterList :characters="filteredCharacters" />
+    <CharacterList :characters="characters" />
   </section>
 </template>
 
 <script setup lang="ts">
-import { ref, computed } from 'vue';
-import type { Character } from '../types/swapi';
-import { ALL_TYPES, filterCharacters } from '../utils/filterCharacters';
-import CharacterTypeFilter from './CharacterTypeFilter.vue';
-import CharacterList from './CharacterList.vue';
+import { ref, computed } from "vue";
+import type { Character } from "../types/swapi";
+import { filterCharacters } from "../utils/filterCharacters";
+import CharacterGenderFilter from "./CharacterGenderFilter.vue";
+import CharacterList from "./CharacterList.vue";
 
 const characters = ref<Character[]>([]);
-const selectedType = ref<string>(ALL_TYPES);
+const selectedGender = ref<string>("");
 
-const types = computed<string[]>(() =>
-  [...new Set(characters.value.map((c) => c.type))].sort((a, b) =>
+const genders = computed<string[]>(() =>
+  [...new Set(characters.value.map((c) => c.gender))].sort((a, b) =>
     a.localeCompare(b),
   ),
 );
 
 const filteredCharacters = computed(() =>
-  filterCharacters(characters.value, selectedType.value),
+  filterCharacters(characters.value, selectedGender.value),
 );
 </script>
 
@@ -70,5 +67,4 @@ const filteredCharacters = computed(() =>
   color: var(--contrast-2);
   font-size: 0.9rem;
 }
-
 </style>

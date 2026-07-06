@@ -1,34 +1,28 @@
 <template>
   <label class="filter">
-    <span class="filter__label">Filter by type</span>
+    <span class="filter__label">Filter by gender</span>
     <select
       class="filter__select"
       :value="modelValue"
       @change="
-        $emit(
-          'update:modelValue',
-          ($event.target as HTMLSelectElement).value,
-        )
+        $emit('update:modelValue', ($event.target as HTMLSelectElement).value)
       "
     >
-      <option :value="ALL_TYPES">All</option>
-      <option v-for="type in types" :key="type" :value="type">
-        {{ type }}
+      <option v-for="gender in genders" :key="gender" :value="gender">
+        {{ gender }}
       </option>
     </select>
   </label>
 </template>
 
 <script setup lang="ts">
-import { ALL_TYPES } from '../utils/filterCharacters';
-
 defineProps<{
-  types: string[];
+  genders: string[];
   modelValue: string;
 }>();
 
 defineEmits<{
-  'update:modelValue': [value: string];
+  "update:modelValue": [value: string];
 }>();
 </script>
 

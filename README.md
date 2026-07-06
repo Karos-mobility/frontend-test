@@ -1,5 +1,16 @@
-# Vue 3 + TypeScript + Vite
+# Karos frontend exercise
 
-This template should help get you started developing with Vue 3 and TypeScript in Vite. The template uses Vue 3 `<script setup>` SFCs, check out the [script setup docs](https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup) to learn more.
+## Context
 
-Learn more about the recommended Project Setup and IDE Support in the [Vue Docs TypeScript Guide](https://vuejs.org/guide/typescript/overview.html#project-setup).
+This exercise aims at testing your ability to read documentation, fetch data from an API, and use it in a frontend application
+
+## Task
+
+- Fetch the star wars characters from the endpoint `https://swapi.dev/api/people/` (you can encapsulate the method to fetch it in `../services/swapiClient.ts`)
+- Display the fetched characters in `src/components/CharacterList.vue` (Only display the name, gender, birth year)
+
+**Bonus task**: Implement a filtering method (in `src/utils/filterCharacters.ts` if you want) to filter the characters by gender. Use it appropriately in `src/StarWarsRoster.vue`)
+
+## Infos
+
+- For info, the response from this endpoint https://swapi.dev/api/people/ looks like the content`swapiPeople.json`: only use the `results`key

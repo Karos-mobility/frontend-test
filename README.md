@@ -2,7 +2,7 @@
 
 ## Context
 
-This exercise aims at testing your ability to read documentation, fetch data from an API, and use it in a frontend application
+This exercise aims at testing your ability to read documentation, [fetch](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch) data from an API, and use it in a frontend application
 
 ## Task
 

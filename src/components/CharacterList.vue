@@ -5,6 +5,19 @@
 
   <div v-else class="list__wrapper">
     TODO: Implement character list rendering Display name, gender, birthyear
+
+    <div class="header">
+      <!-- display headers of the Character list -->
+      <div>Name</div>
+      <div>Gender</div>
+      <div>Birth Year</div>
+    </div>
+    <!-- display character items -->
+    <div v-for="character in characters" :key="character.id" class="content">
+      <div>{{ character.name }}</div>
+      <div>{{ character.gender }}</div>
+      <div>{{ character.birth_year }}</div>
+    </div>
   </div>
 </template>
 

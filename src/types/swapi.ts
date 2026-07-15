@@ -3,5 +3,5 @@ export interface Character {
   id: string;
   name: string;
   gender: string;
-  birthYear: string;
+  birth_year: string;
 }

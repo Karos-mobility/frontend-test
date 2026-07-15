@@ -9,7 +9,8 @@ This exercise aims at testing your ability to read documentation, [fetch](https:
 - Fetch the star wars characters from the endpoint `https://swapi.dev/api/people/` (you can encapsulate the method to fetch it in `../services/swapiClient.ts`)
 - Display the fetched characters in `src/components/CharacterList.vue` (Only display the name, gender, birth year)
 
-**Bonus task**: Implement a filtering method (in `src/utils/filterCharacters.ts` if you want) to filter the characters by gender. Use it appropriately in `src/StarWarsRoster.vue`)
+** Bonus task 1 **: Use CSS to display the characters in `src/CharactersList.vue` like in a table
+**Bonus task2 **: Implement a filtering method (in `src/utils/filterCharacters.ts` if you want) to filter the characters by gender. Use it appropriately in `src/StarWarsRoster.vue`)
 
 ## Infos
 

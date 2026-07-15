@@ -16,7 +16,9 @@ export class SwapiError extends Error {
  * Throw a `SwapiError` if the request fails or the response is not ok.
  *
  * Example URL to fetch: https://swapi.dev/api/people/
+ *
+ * fetch documentation: https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch
  */
-export const getCharacters = async <T,>(url: string): Promise<T> => {
+export const getCharacters = async <T>(url: string): Promise<T> => {
   throw new Error("getCharacters is not implemented yet");
 };

@@ -2,13 +2,19 @@
   <section class="roster">
     <header class="roster__header">
       <h1>Star Wars Roster</h1>
-      <p class="roster__subtitle">Characters from swapi.dev.</p>
+      <p class="roster__subtitle">
+        Characters from
+        <a href="https://swapi.dev/" target="_blank" rel="noopener noreferrer"
+          >swapi.dev</a
+        >
+      </p>
     </header>
 
     <div class="roster__toolbar">
       <CharacterGenderFilter v-model="selectedGender" :genders="genders" />
-      <p class="roster__count">
-        Showing {{ characters.length }} of {{ characters.length }} characters
+      <p class="roster__count" v-if="characters.length > 0">
+        Showing {{ filteredCharacters.length }} of
+        {{ characters.length }} characters
       </p>
     </div>
 

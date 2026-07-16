@@ -28,7 +28,6 @@ import type { Character } from "../types/swapi";
 import { filterCharacters } from "../utils/filterCharacters";
 import CharacterGenderFilter from "./CharacterGenderFilter.vue";
 import CharacterList from "./CharacterList.vue";
-import { getCharacters } from "../services/swapiClient.ts";
 
 const characters = ref<Character[]>([]);
 const selectedGender = ref<string>("");
@@ -45,14 +44,27 @@ const filteredCharacters = computed(() =>
 
 onMounted(async () => {
   try {
-    const response = await getCharacters();
-    console.log("Fetched characters:", response);
+    const tmp = await fetch(`https://swapi.dev/api/people/`);
+
+    const tmp2 = await tmp.json();
+
+    console.log(tmp2);
+
+    characters.value = tmp2.results.map((e: any) => {
+      return {
+        name: e.name,
+        birth_year: e.birth_year,
+        gender: e.gender,
+      };
+    });
+    const filteredCharacters = characters.value.filter((character) => {
+      return character.gender === "male";
+    });
   } catch (error) {
     console.error("Error fetching characters:", error);
   }
 });
 </script>
-
 <style scoped>
 .roster {
   max-width: 60rem;

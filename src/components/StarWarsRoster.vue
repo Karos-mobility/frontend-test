@@ -23,11 +23,12 @@
 </template>
 
 <script setup lang="ts">
-import { ref, computed } from "vue";
+import { ref, computed, onMounted } from "vue";
 import type { Character } from "../types/swapi";
 import { filterCharacters } from "../utils/filterCharacters";
 import CharacterGenderFilter from "./CharacterGenderFilter.vue";
 import CharacterList from "./CharacterList.vue";
+import { getCharacters } from "../services/swapiClient.ts";
 
 const characters = ref<Character[]>([]);
 const selectedGender = ref<string>("");
@@ -41,6 +42,15 @@ const genders = computed<string[]>(() =>
 const filteredCharacters = computed(() =>
   filterCharacters(characters.value, selectedGender.value),
 );
+
+onMounted(async () => {
+  try {
+    const response = await getCharacters();
+    console.log("Fetched characters:", response);
+  } catch (error) {
+    console.error("Error fetching characters:", error);
+  }
+});
 </script>
 
 <style scoped>

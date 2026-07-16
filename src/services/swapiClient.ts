@@ -19,6 +19,6 @@ export class SwapiError extends Error {
  *
  * fetch documentation: https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch
  */
-export const getCharacters = async <T>(url: string): Promise<T> => {
+export const getCharacters = async <T>(): Promise<T> => {
   throw new Error("getCharacters is not implemented yet");
 };

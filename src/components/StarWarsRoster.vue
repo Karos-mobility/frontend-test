@@ -46,6 +46,8 @@ const filteredCharacters = computed(() =>
 onMounted(async () => {
   try {
     const response = await getCharacters();
+    // TODO: Implement getCharacters with fetch here or here `../services/swapiClient.ts`
+    // Fetch documentation: https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch
     console.log("Fetched characters:", response);
   } catch (error) {
     console.error("Error fetching characters:", error);
